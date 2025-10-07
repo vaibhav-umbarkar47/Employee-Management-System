@@ -4,6 +4,7 @@
 The Employee Management System is a MySQL-based database project designed to efficiently manage and organize employee-related information, including job details, payroll, bonuses, qualifications, and leaves.
 This system helps HR teams store, track, and analyze employee data in a structured and relational manner.
 
+
 🎯 Objectives
 
 To store and manage employee records and related company data efficiently.
@@ -14,6 +15,7 @@ To ensure relational integrity among multiple employee-related entities.
 
 To generate useful insights about employee details, payroll, leaves, and qualifications.
 
+
 🗄️ Database Information
 
 Database Type: MySQL
@@ -21,6 +23,7 @@ Database Type: MySQL
 Total Tables: 6
 
 Schema Design: Fully normalized with primary and foreign key constraints
+
 
 🧩 Tables and Description
 1. 🧑‍💼 employee
@@ -46,6 +49,7 @@ emp_pass (VARCHAR 50)
 
 Job_ID (INT, Foreign Key → jobdepartment.Job_ID)
 
+
 2. 🏢 jobdepartment
 
 Stores details about departments and job roles.
@@ -61,6 +65,7 @@ description (TEXT) — Role description
 
 salaryrange (VARCHAR 50) — Salary range info
 
+
 3. 💰 salarybonus
 
 Stores salary and bonus information for each job role.
@@ -75,6 +80,7 @@ amount (DECIMAL 10,2)
 annual (DECIMAL 10,2)
 
 bonus (DECIMAL 10,2)
+
 
 4. 🧾 payroll
 
@@ -97,6 +103,7 @@ report (TEXT)
 
 total_amount (DECIMAL 10,2)
 
+
 5. 🌴 leaves
 
 Tracks employee leave records.
@@ -109,6 +116,7 @@ emp_ID (INT, Foreign Key → employee.emp_ID)
 date (DATE)
 
 reason (TEXT)
+
 
 6. 🎓 qualification
 
@@ -125,6 +133,7 @@ Requirements (VARCHAR 255)
 
 Date_In (DATE)
 
+
 🔗 Relationships
 
 Employee → JobDepartment → Many employees can belong to one job department.
@@ -132,6 +141,7 @@ Employee → JobDepartment → Many employees can belong to one job department.
 Employee → Payroll / Leaves / Qualification → Each employee can have multiple payrolls, leaves, and qualifications.
 
 JobDepartment → SalaryBonus / Payroll → Each job department is linked to specific salary and payroll details.
+
 
 ⚙️ Key Features
 
@@ -151,11 +161,13 @@ Leave summaries per employee
 
 Payroll and bonus tracking
 
+
 📂 Project Structure
 Employee_Management_System_MySQL/
  ┣─ employee_management.sql     # SQL file containing database creation, tables & queries
  ┣─ README.md                  # Project documentation
  ┗─ ER_Diagram.png             # Entity-Relationship Diagram (this image)
+
 
 🚀 How to Run
 
@@ -177,6 +189,7 @@ Run SELECT queries to explore employee, payroll, and department data.
 
 Use JOIN queries to generate detailed reports.
 
+
 🧠 Example Analytical Queries
 -- Total number of employees in each department
 SELECT j.jobdept, COUNT(e.emp_ID) AS total_employees
@@ -196,6 +209,7 @@ FROM employee e
 JOIN leaves l ON e.emp_ID = l.emp_ID
 GROUP BY e.emp_ID;
 
+
 💬 Future Enhancements
 
 Add stored procedures for payroll generation.
@@ -205,6 +219,7 @@ Implement views for easier HR reporting.
 Add triggers to automatically update salary or leave info.
 
 Connect this database to a web or desktop frontend in the future.
+
 
 📌 Notes
 
