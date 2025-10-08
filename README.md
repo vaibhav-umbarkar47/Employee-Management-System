@@ -1,230 +1,110 @@
-🧑‍💼 Employee Management System (MySQL-Based)
-📋 Overview
+<img width="1335" height="738" alt="image" src="https://github.com/user-attachments/assets/a6028d84-2eb3-4cb8-b7da-91d0056fbd2d" />
 
-The Employee Management System is a MySQL-based database project designed to efficiently manage and organize employee-related information, including job details, payroll, bonuses, qualifications, and leaves.
-This system helps HR teams store, track, and analyze employee data in a structured and relational manner.
+<img width="1153" height="799" alt="Screenshot 2025-09-25 160701" src="https://github.com/user-attachments/assets/5bc7f0d6-f245-486b-8d62-77305617acf5" /># 🧑‍💼 Employee Management System (MySQL)
 
+## 📌 Project Title & Description
+The **Employee Management System (EMS)** is a relational database project built entirely in **MySQL**.  
+It is designed to manage employee records, job roles, payroll, qualifications, leaves, and bonuses in a structured and efficient way.  
+The project demonstrates how relational database design can ensure **data integrity, scalability, and easy reporting**.
 
-🎯 Objectives
+---
 
-To store and manage employee records and related company data efficiently.
+## 📖 Project Overview
+Organizations often struggle with scattered employee data and manual record-keeping.  
+This system provides a **centralized MySQL database** that connects employees with their job roles, payroll, qualifications, and leave records.  
+The ER diagram and schema design highlight how MySQL can be used to build a robust employee management solution.
 
-To perform CRUD operations (Create, Read, Update, Delete) using SQL.
+---
 
-To ensure relational integrity among multiple employee-related entities.
+## ✨ Features
+- Manage employee personal and job-related details  
+- Map employees to job roles and departments  
+- Track qualifications and requirements  
+- Maintain payroll with total and net pay  
+- Record employee leaves with reasons and dates  
+- Manage annual salary and bonus details  
+- Enforce data consistency with **primary keys** and **foreign keys**  
 
-To generate useful insights about employee details, payroll, leaves, and qualifications.
+---
 
+## 🧬 Entity-Relationship Diagram (ERD)
+<img width="868" height="606" alt="image" src="https://github.com/user-attachments/assets/1206eb68-ebec-44fd-9719-f460c2a20cf9" />
 
-🗄️ Database Information
+### 📸 ERD Snapshot
+*(Insert your ER diagram screenshot here — e.g., `ERD.png`)*
 
-Database Type: MySQL
+### 🔍 ER Diagram Explanation
+The ERD defines the structure of the Employee Management System database:
 
-Total Tables: 6
+#### `employee`
+- Stores personal and job-related details  
+- **Attributes:** `emp_ID` (PK), `firstname`, `lastname`, `gender`, `email_ID`, `emp_contact`, `emp_add`, `emp_pass`, `Job_ID` (FK)
 
-Schema Design: Fully normalized with primary and foreign key constraints
+#### `jobdepartment`
+- Defines job roles, departments, and salary ranges  
+- **Attributes:** `Job_ID` (PK), `Job_name`, `department`, `salaryrange`
 
+#### `qualification`
+- Tracks employee qualifications and requirements  
+- **Attributes:** `QualID` (PK), `emp_ID` (FK), `Qualification`, `Requirements`
 
-🧩 Tables and Description
-1. 🧑‍💼 employee
+#### `payroll`
+- Stores salary and net pay details  
+- **Attributes:** `payroll_ID` (PK), `emp_ID` (FK), `Job_ID` (FK), `total_amount`, `netpay`
 
-Stores core employee information.
-Columns:
+#### `leaves`
+- Records employee leave details  
+- **Attributes:** `leave_ID` (PK), `emp_ID` (FK), `date`, `reason`
 
-emp_ID (INT, Primary Key)
+#### `salarybonus`
+- Captures annual salary and bonus data  
+- **Attributes:** `salary_ID` (PK), `emp_ID` (FK), `Job_ID` (FK), `annual`, `bonus`
 
-firstname (VARCHAR 50)
+### 🔗 Relationship Summary
+- One **employee** can have multiple **qualifications**, **payroll records**, **leaves**, and **salary bonuses**  
+- Each employee is linked to a **job role** via `Job_ID`  
+- Foreign key constraints ensure **data consistency** across all entities  
 
-lastname (VARCHAR 50)
+---
 
-gender (VARCHAR 10)
+## 🗄️ Database Schema / Tables
+- **Employee** → Employee details  
+- **JobDepartment** → Job roles & departments  
+- **Qualification** → Employee qualifications  
+- **Payroll** → Salary & net pay  
+- **Leaves** → Leave records  
+- **SalaryBonus** → Annual salary & bonus  
 
-age (INT)
+---
 
-contact_add (VARCHAR 100)
 
-emp_email (VARCHAR 100)
+Code
 
-emp_pass (VARCHAR 50)
+---
 
-Job_ID (INT, Foreign Key → jobdepartment.Job_ID)
+## 🚀 Getting Started
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/vaibhav-umbarkar47/Employee-Management-System
+Open MySQL Workbench (or any MySQL client)
 
+Import the SQL schema from SQL_Scripts/schema.sql
 
-2. 🏢 jobdepartment
+Run queries to manage employees, payroll, leaves, and bonuses
 
-Stores details about departments and job roles.
-Columns:
+🛠️ Tech Stack
+Database: MySQL
 
-Job_ID (INT, Primary Key)
+Modeling Tool: MySQL Workbench (or any ERD tool)
 
-jobdept (VARCHAR 50)
+Language: SQL
 
-name (VARCHAR 100) — Job title or position name
+🧠 Author
+Designed and documented by Vaibhav, with a focus on clarity, precision, and scalable database design.
 
-description (TEXT) — Role description
+📬 Contact
+For queries, feedback, or collaboration:
 
-salaryrange (VARCHAR 50) — Salary range info
+📧 Email: vumbarkar227@gmail.com
 
-
-3. 💰 salarybonus
-
-Stores salary and bonus information for each job role.
-Columns:
-
-salary_ID (INT, Primary Key)
-
-job_ID (INT, Foreign Key → jobdepartment.Job_ID)
-
-amount (DECIMAL 10,2)
-
-annual (DECIMAL 10,2)
-
-bonus (DECIMAL 10,2)
-
-
-4. 🧾 payroll
-
-Maintains payroll records for each employee.
-Columns:
-
-payroll_ID (INT, Primary Key)
-
-emp_ID (INT, Foreign Key → employee.emp_ID)
-
-job_ID (INT, Foreign Key → jobdepartment.Job_ID)
-
-salary_ID (INT, Foreign Key → salarybonus.salary_ID)
-
-leave_ID (INT, Foreign Key → leaves.leave_ID)
-
-date (DATE)
-
-report (TEXT)
-
-total_amount (DECIMAL 10,2)
-
-
-5. 🌴 leaves
-
-Tracks employee leave records.
-Columns:
-
-leave_ID (INT, Primary Key)
-
-emp_ID (INT, Foreign Key → employee.emp_ID)
-
-date (DATE)
-
-reason (TEXT)
-
-
-6. 🎓 qualification
-
-Stores employee qualification and position details.
-Columns:
-
-QualID (INT, Primary Key)
-
-Emp_ID (INT, Foreign Key → employee.emp_ID)
-
-Position (VARCHAR 50)
-
-Requirements (VARCHAR 255)
-
-Date_In (DATE)
-
-
-🔗 Relationships
-
-Employee → JobDepartment → Many employees can belong to one job department.
-
-Employee → Payroll / Leaves / Qualification → Each employee can have multiple payrolls, leaves, and qualifications.
-
-JobDepartment → SalaryBonus / Payroll → Each job department is linked to specific salary and payroll details.
-
-
-⚙️ Key Features
-
-Complete relational model using MySQL.
-
-Supports full data manipulation (INSERT, UPDATE, DELETE).
-
-Retrieve data easily using JOIN and aggregate queries.
-
-Generate insights such as:
-
-Total employees per department
-
-Salary statistics (max, min, avg)
-
-Leave summaries per employee
-
-Payroll and bonus tracking
-
-
-📂 Project Structure
-Employee_Management_System_MySQL/
- ┣─ employee_management.sql     # SQL file containing database creation, tables & queries
- ┣─ README.md                  # Project documentation
- ┗─ ER_Diagram.png             # Entity-Relationship Diagram (this image)
-
-
-🚀 How to Run
-
-Open MySQL Workbench or any MySQL-supported database tool.
-
-Open the employee_management.sql file.
-
-Execute the SQL commands in order:
-
-Create Database
-
-Create Tables
-
-Define Foreign Keys
-
-Insert Sample Data
-
-Run SELECT queries to explore employee, payroll, and department data.
-
-Use JOIN queries to generate detailed reports.
-
-
-🧠 Example Analytical Queries
--- Total number of employees in each department
-SELECT j.jobdept, COUNT(e.emp_ID) AS total_employees
-FROM employee e
-JOIN jobdepartment j ON e.Job_ID = j.Job_ID
-GROUP BY j.jobdept;
-
--- Average salary by department
-SELECT j.jobdept, AVG(s.amount) AS avg_salary
-FROM salarybonus s
-JOIN jobdepartment j ON s.job_ID = j.Job_ID
-GROUP BY j.jobdept;
-
--- Total leaves taken by each employee
-SELECT e.firstname, e.lastname, COUNT(l.leave_ID) AS total_leaves
-FROM employee e
-JOIN leaves l ON e.emp_ID = l.emp_ID
-GROUP BY e.emp_ID;
-
-
-💬 Future Enhancements
-
-Add stored procedures for payroll generation.
-
-Implement views for easier HR reporting.
-
-Add triggers to automatically update salary or leave info.
-
-Connect this database to a web or desktop frontend in the future.
-
-
-📌 Notes
-
-This project is 100% SQL-based (no external programming languages).
-
-Developed and tested in MySQL Workbench.
-
-Ideal for learning database normalization, ER modeling, and relational design.
+💼 LinkedIn [](https://www.linkedin.com/in/vaibhav-umbarkar-023667324/)
