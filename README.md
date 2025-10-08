@@ -1,6 +1,6 @@
 <img width="1335" height="738" alt="image" src="https://github.com/user-attachments/assets/a6028d84-2eb3-4cb8-b7da-91d0056fbd2d" />
 
-<img width="1153" height="799" alt="Screenshot 2025-09-25 160701" src="https://github.com/user-attachments/assets/5bc7f0d6-f245-486b-8d62-77305617acf5" /># 🧑‍💼 Employee Management System (MySQL)
+# 🧑‍💼 Employee Management System (MySQL)
 
 ## 📌 Project Title & Description
 The **Employee Management System (EMS)** is a relational database project built entirely in **MySQL**.  
@@ -107,4 +107,4 @@ For queries, feedback, or collaboration:
 
 📧 Email: vumbarkar227@gmail.com
 
-💼 LinkedIn [](https://www.linkedin.com/in/vaibhav-umbarkar-023667324/)
+💼 [LinkedIn](https://www.linkedin.com/in/vaibhav-umbarkar-023667324/)
