@@ -85,7 +85,7 @@ Code
 ## 🚀 Getting Started
 1. Clone the repository  
    ```bash
-   git clone https://github.com/vaibhav-umbarkar47/Employee-Management-System
+   git clone [GitHub](https://github.com/vaibhav-umbarkar47/Employee-Management-System)
 Open MySQL Workbench (or any MySQL client)
 
 Import the SQL schema from SQL_Scripts/schema.sql
